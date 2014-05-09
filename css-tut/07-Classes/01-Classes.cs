@@ -5,6 +5,9 @@ class OutputClass
 {
   string myString;
 
+  //default constructor
+  public OutputClass() : this("Default constructor string.") {}
+
   //constructor
   public OutputClass(string inputString)
   {
@@ -22,6 +25,12 @@ class OutputClass
   {
     //resouce cleanup
   }
+
+  //static method
+  public static void staticPrinter()
+  {
+    Console.WriteLine("I print things even when there are no instances of the class.");
+  }
 }
 
 //program class
@@ -29,8 +38,12 @@ class ExampleClass
 {
   public static void Main()
   {
-    OutputClass outCl = new OutputClass("This is printed by OutputClass");
+    OutputClass.staticPrinter();
 
+    OutputClass outCl = new OutputClass();
+    outCl.printString();
+    
+    outCl = new OutputClass("This is printed by OutputClass");
     outCl.printString();
   }
 }
